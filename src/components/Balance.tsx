@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTheme } from '@emotion/react';
 import { BalanceProps } from '../types/Balance';
 import { SavingsProps } from '../types/Savings';
 import Savings from './Savings'; 
+import { Box } from '@mui/system';
 
 const Balance = ({balance, setSavings} :BalanceProps) => {
     const [amount, setAmount] = useState(0)
@@ -9,15 +11,16 @@ const Balance = ({balance, setSavings} :BalanceProps) => {
         e.preventDefault()
         setSavings((savings)=> savings + amount)
     }
+    const theme = useTheme ()
     return (
-        <div>
+        <Box>
             <p>{balance}</p>
             <form onSubmit={(e) => onSubmit(e)}>
                 <label htmlFor="addSavings">Add to Savings</label>
                 <input type="number" name="addSavings" id="addSavings" onChange={(e)=>setAmount(Number(e.target.value))}/>
                 <button type="submit">Transfer</button>
             </form>
-        </div>
+        </Box>
     )
 };
 

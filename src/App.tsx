@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React, { createContext, useEffect, useState } from "react"
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { green, purple } from '@mui/material/colors';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import IconButton from '@mui/material/IconButton';
+import ToggleButton from './components/ToggleButton';
 
 
 import "./Styles/App.css"
@@ -12,6 +12,8 @@ import Balance from "./components/Balance"
 import Savings from "./components/Savings"
 import { MoneyItem } from "./types/Money"
 import { Box } from "@mui/system";
+
+export const ThemeContext = createContext ({toggleMode : () => {}})
 
 function App() {
   const [incomes, setIncomes] = useState<MoneyItem[]>([]);
@@ -59,19 +61,23 @@ function App() {
       })
     }
   });
-
+  const manageTheme = {
+    toggleMode: () => {
+      setMode((prevMode)=> (prevMode === "light" ? "dark" : "light"))
+    }
+  }
   return (
-    <ThemeProvider theme={theme}>
-      <IconButton onClick={()=> setMode (mode === "dark" ? "light" : "dark")}>
-        {mode === "light" ? <Brightness4Icon/> : <Brightness7Icon/>}
-      </IconButton>
-    <Box className="App" sx={{bgcolor:'background.default'}}>
-      <Money option="Income" list={incomes} setList={setIncomes} />
-      <Money option="Expense" list={expenses} setList={setExpenses}/>
-      <Savings savings={savings} />
-      <Balance balance={balance} setSavings={setSavings}/>
-    </Box>
-    </ThemeProvider>
+    <ThemeContext.Provider value={manageTheme}>
+      <ThemeProvider theme={theme}>
+      <Box className="App" sx={{bgcolor:'background.default'}}>
+        <ToggleButton/>
+        <Money option="Income" list={incomes} setList={setIncomes} />
+        <Money option="Expense" list={expenses} setList={setExpenses}/>
+        <Savings savings={savings} />
+        <Balance balance={balance} setSavings={setSavings}/>
+      </Box>
+      </ThemeProvider>
+    </ThemeContext.Provider>
   )
 }
 
