@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import {Box, TextField, Button, List, ListItem, styled, } from "@mui/material"
 import { MoneyProps } from "../types/Money"
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import MoneyTable from "../components/MoneyTable"
 
 const Money = ({ option, list, setList }: MoneyProps) => {
     const [title,setTitle] = useState("")
@@ -60,7 +61,7 @@ const Money = ({ option, list, setList }: MoneyProps) => {
             type="submit">
                 Save
             </Button>
-            <MoneyList>
+            {/* <List sx={{width: "100%", maxHeight:200, overflow:"scroll"}}>
                 {
                     list.length > 0 && list.map(
                         item => (
@@ -68,7 +69,8 @@ const Money = ({ option, list, setList }: MoneyProps) => {
                          )
                     )
                  }
-            </MoneyList>
+            </List> */}
+            <MoneyTable list={list} />
         </Box>
   )
 }

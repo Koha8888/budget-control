@@ -1,19 +1,47 @@
 import React, { useState } from 'react';
+import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material';
+import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
+
 import { SavingsProps } from '../types/Savings';
+import { Stack } from '@mui/system';
 
 const Savings = ({savings}:SavingsProps) => {
     const [target, setTarget] = useState (0)
     return (
-        <div>
+        <Stack sx={{color: "text.primary"}} direction="column" alignItems="center">
             <p>Current Savings: {savings}</p>
-            <p>Current Target:{target}</p>
-            <progress value={savings} max={target}/>
-            <form>
-                <label htmlFor="">Set target</label>
-                <input type="number" name="target" id="target" onChange={(e)=>setTarget(Number(e.target.value))}/>
-                <button type="submit">Set target</button>
-            </form>
-        </div>
+            <p>Current Target: {target}</p>
+            
+            <Stack sx={{ position: 'relative', display: 'inline-block' }}>
+                <CircularProgress variant="determinate" value={savings / target  * 100} />
+                <Box
+                    sx={{top: 0,
+                        left: 0,
+                       bottom: 0,
+                        right: 0,
+                       position: 'absolute',
+                       display: 'flex',
+                       alignItems: 'center',
+                       justifyContent: 'center',
+                }}>
+                    <Typography
+                    variant="caption"
+                    component="div"
+                    >{`${Math.round(savings / target * 100)}%`} 
+                    </Typography>
+                </Box>
+            </Stack>
+            <Stack component="form" spacing={1}>
+                <TextField 
+                    label="Set target "
+                    type="number" 
+                    name="target" 
+                    onChange={(e)=>setTarget(Number(e.target.value))}
+                />
+                <Button variant="contained" startIcon={<DoneOutlineIcon />}
+                type="submit">Set target</Button>
+            </Stack>
+        </Stack>
     )
 };
 

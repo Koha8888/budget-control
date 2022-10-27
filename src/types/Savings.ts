@@ -1,3 +1,3 @@
 export interface SavingsProps{
-    savings: number | undefined
+    savings: number
 }

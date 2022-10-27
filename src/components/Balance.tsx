@@ -17,9 +17,11 @@ const Balance = ({balance, setSavings} :BalanceProps) => {
     return (
         <Stack sx={{color: "text.primary"}} direction="column" alignItems="center">
             <p>Current balance:{balance}</p>
-            <Box 
+            <Stack 
                 component="form"
-                onSubmit={(e) => onSubmit(e)}>
+                onSubmit={(e) => onSubmit(e)}
+                direction="column"
+                spacing={1}>
                 <TextField 
                 label="Transfer to savings"
                 type="number" 
@@ -29,7 +31,7 @@ const Balance = ({balance, setSavings} :BalanceProps) => {
                 type="submit">
                     Transfer
                 </Button>
-            </Box>
+            </Stack>
         </Stack>
     )
 };
