@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import {Box, TextField, Button, List, ListItem, styled, } from "@mui/material"
 import { MoneyProps } from "../types/Money"
-// import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 const Money = ({ option, list, setList }: MoneyProps) => {
     const [title,setTitle] = useState("")
@@ -56,9 +56,10 @@ const Money = ({ option, list, setList }: MoneyProps) => {
                      shrink: true,
                 }}
             />
-            <button type="submit" 
-            // startIcon={<AddCircleOutlineIcon/>}
-            >Save</button>
+            <Button variant="contained" startIcon={<AddCircleOutlineIcon />}
+            type="submit">
+                Save
+            </Button>
             <MoneyList>
                 {
                     list.length > 0 && list.map(

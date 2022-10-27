@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useTheme } from '@emotion/react';
+import SendIcon from '@mui/icons-material/Send';
 import { BalanceProps } from '../types/Balance';
 import { SavingsProps } from '../types/Savings';
 import Savings from './Savings'; 
 
-import { Stack } from '@mui/material';
+import { Box, Button, Stack, TextField } from '@mui/material';
 
 const Balance = ({balance, setSavings} :BalanceProps) => {
     const [amount, setAmount] = useState(0)
@@ -14,13 +15,21 @@ const Balance = ({balance, setSavings} :BalanceProps) => {
     }
     const theme = useTheme ()
     return (
-        <Stack flexDirection="column" alignItems="center">
-            <p>{balance}</p>
-            <form onSubmit={(e) => onSubmit(e)}>
-                <label htmlFor="addSavings">Add to Savings</label>
-                <input type="number" name="addSavings" id="addSavings" onChange={(e)=>setAmount(Number(e.target.value))}/>
-                <button type="submit">Transfer</button>
-            </form>
+        <Stack sx={{color: "text.primary"}} direction="column" alignItems="center">
+            <p>Current balance:{balance}</p>
+            <Box 
+                component="form"
+                onSubmit={(e) => onSubmit(e)}>
+                <TextField 
+                label="Transfer to savings"
+                type="number" 
+                name="addSavings" 
+                onChange={(e)=>setAmount(Number(e.target.value))}/>
+                <Button variant="contained" endIcon={<SendIcon />}
+                type="submit">
+                    Transfer
+                </Button>
+            </Box>
         </Stack>
     )
 };
