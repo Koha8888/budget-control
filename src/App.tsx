@@ -12,8 +12,9 @@ import Balance from "./components/Balance"
 import Savings from "./components/Savings"
 import { MoneyItem } from "./types/Money"
 import { Box } from "@mui/system";
+import { Grid } from "@mui/material";
 
-export const ThemeContext = createContext ({toggleMode : () => {}})
+export const ThemeContext = createContext ({toggleMode : () => {}}) 
 
 function App() {
   const [incomes, setIncomes] = useState<MoneyItem[]>([]);
@@ -69,12 +70,14 @@ function App() {
   return (
     <ThemeContext.Provider value={manageTheme}>
       <ThemeProvider theme={theme}>
-      <Box className="App" sx={{bgcolor:'background.default'}}>
-        <ToggleButton/>
-        <Money option="Income" list={incomes} setList={setIncomes} />
-        <Money option="Expense" list={expenses} setList={setExpenses}/>
-        <Savings savings={savings} />
+      <Box className="App" sx={{bgcolor:'background.default'}} padding={5}>
+        <Grid container spacing={2} >
+          <Grid item md={4}><Money option="Income" list={incomes} setList={setIncomes}/></Grid>
+          <Grid item md={4}><Money option="Expense" list={expenses} setList={setExpenses}/></Grid>
+          <Grid item md={4}><Savings savings={savings} /></Grid>
+        </Grid>
         <Balance balance={balance} setSavings={setSavings}/>
+        <ToggleButton/>
       </Box>
       </ThemeProvider>
     </ThemeContext.Provider>

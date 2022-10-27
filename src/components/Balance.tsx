@@ -3,7 +3,8 @@ import { useTheme } from '@emotion/react';
 import { BalanceProps } from '../types/Balance';
 import { SavingsProps } from '../types/Savings';
 import Savings from './Savings'; 
-import { Box } from '@mui/system';
+
+import { Stack } from '@mui/material';
 
 const Balance = ({balance, setSavings} :BalanceProps) => {
     const [amount, setAmount] = useState(0)
@@ -13,14 +14,14 @@ const Balance = ({balance, setSavings} :BalanceProps) => {
     }
     const theme = useTheme ()
     return (
-        <Box>
+        <Stack flexDirection="column" alignItems="center">
             <p>{balance}</p>
             <form onSubmit={(e) => onSubmit(e)}>
                 <label htmlFor="addSavings">Add to Savings</label>
                 <input type="number" name="addSavings" id="addSavings" onChange={(e)=>setAmount(Number(e.target.value))}/>
                 <button type="submit">Transfer</button>
             </form>
-        </Box>
+        </Stack>
     )
 };
 

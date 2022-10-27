@@ -9,7 +9,7 @@ const ToggleButton = () => {
     const colorMode = useContext (ThemeContext)
     const theme = useTheme()
   return (
-    <IconButton onClick={()=> colorMode.toggleMode()}>
+    <IconButton onClick={()=> colorMode.toggleMode()} >
         {theme.palette.mode === "light" ? <Brightness4Icon/> : <Brightness7Icon/>}
       </IconButton> 
   )
