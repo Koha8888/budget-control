@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material';
 import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 
@@ -7,6 +8,10 @@ import { Stack } from '@mui/system';
 
 const Savings = ({savings}:SavingsProps) => {
     const [target, setTarget] = useState (0)
+    const incomes = useSelector((state:any) => state.incomeReducer)
+    const expenses = useSelector((state:any) => state.expenseReducer)
+    console.log("incomes", incomes)
+    console.log("expenses", expenses)
     return (
         <Stack sx={{color: "text.primary"}} direction="column" alignItems="center">
             <p>Current Savings: {savings}</p>
