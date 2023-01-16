@@ -44,7 +44,8 @@ const Savings = ({savings}:SavingsProps) => {
                     onChange={(e)=>setTarget(Number(e.target.value))}
                 />
                 <Button variant="contained" startIcon={<DoneOutlineIcon />}
-                type="submit">Set target</Button>
+                    type="submit">Set target
+                </Button>
             </Stack>
         </Stack>
     )

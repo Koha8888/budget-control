@@ -34,7 +34,7 @@ const Money = ({ option, list, setList }: MoneyProps) => {
                 onChange={(e) => setTitle(e.target.value)}
                 value = {title}
                 InputLabelProps={{
-                            shrink: true,
+                    shrink: true,
                 }}
             />
             <TextField
@@ -54,22 +54,13 @@ const Money = ({ option, list, setList }: MoneyProps) => {
                 onChange={(e) => setDate(e.target.value)}
                 type = "date"
                 InputLabelProps={{
-                     shrink: true,
+                    shrink: true,
                 }}
             />
             <Button variant="contained" startIcon={<AddCircleOutlineIcon />}
-            type="submit">
-                Save
+                type="submit">
+                    Save
             </Button>
-            {/* <List sx={{width: "100%", maxHeight:200, overflow:"scroll"}}>
-                {
-                    list.length > 0 && list.map(
-                        item => (
-                            <ListItem key={item.id }> {item.title}, {item.amount}, {item.date}</ListItem>
-                         )
-                    )
-                 }
-            </List> */}
             <MoneyTable list={list} />
         </Box>
   )

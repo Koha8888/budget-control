@@ -11,7 +11,7 @@ const ToggleButton = () => {
   return (
     <IconButton onClick={()=> colorMode.toggleMode()} >
         {theme.palette.mode === "light" ? <Brightness4Icon/> : <Brightness7Icon/>}
-      </IconButton> 
+    </IconButton> 
   )
 }
 

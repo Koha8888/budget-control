@@ -15,22 +15,23 @@ const Balance = ({balance, setSavings} :BalanceProps) => {
     }
     const theme = useTheme ()
     return (
-        <Stack sx={{color: "text.primary"}} direction="column" alignItems="center">
+        <Stack sx={{color:"text.primary"}} direction="column" alignItems="center">
             <p>Current balance:{balance}</p>
             <Stack 
                 component="form"
                 onSubmit={(e) => onSubmit(e)}
                 direction="column"
                 spacing={1}>
-                <TextField 
-                label="Transfer to savings"
-                type="number" 
-                name="addSavings" 
-                onChange={(e)=>setAmount(Number(e.target.value))}/>
-                <Button variant="contained" endIcon={<SendIcon />}
-                type="submit">
-                    Transfer
-                </Button>
+                    <TextField 
+                        label="Transfer to savings"
+                        type="number" 
+                        name="addSavings" 
+                        onChange={(e)=>setAmount(Number(e.target.value))}
+                    />
+                    <Button variant="contained" endIcon={<SendIcon />}
+                        type="submit">
+                        Transfer
+                    </Button>
             </Stack>
         </Stack>
     )
