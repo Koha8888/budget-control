@@ -12,8 +12,8 @@ spent so far. While building this project i learned to use Typescript and React.
 </p>
 
 ## Preview:
-![homepage](media/screen1.png)
-![theme](media/screen2.png)
-![addicome&expenses](media/screen3.png)
-![savings](media/screen4.png)
-![target](media/screen5.png)
+![homepage](Media/screen1.png)
+![theme](Media/screen2.png)
+![addicome&expenses](Media/screen3.png)
+![savings](Media/screen4.png)
+![target](Media/screen5.png)
