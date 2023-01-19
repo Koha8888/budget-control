@@ -12,8 +12,13 @@ spent so far. While building this project i learned to use Typescript and React.
 </p>
 
 ## Preview:
+Main page
 ![homepage](Media/screen1.png)
+Dark theme
 ![theme](Media/screen2.png)
+Add income and expenses
 ![addicome&expenses](Media/screen3.png)
+Transfer to savings
 ![savings](Media/screen4.png)
+Set target
 ![target](Media/screen5.png)
