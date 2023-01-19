@@ -10,3 +10,10 @@ spent so far. While building this project i learned to use Typescript and React.
 <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> 
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a>
 </p>
+
+## Preview:
+![homepage](media/screen1.png)
+![theme](media/screen2.png)
+![addicome&expenses](media/screen3.png)
+![savings](media/screen4.png)
+![target](media/screen5.png)
